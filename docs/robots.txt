@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://naveed-qasim608.github.io/Flyrank_ML_Internship/sitemap.xml

@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Content Refresh Prioritization Using Search Intelligence — Muhammad Naveed Qasim</title>
+<meta name="description" content="An explainable machine learning approach for ranking content update opportunities using search intelligence signals. FlyRank ML Internship research by Muhammad Naveed Qasim.">
+<meta name="author" content="Muhammad Naveed Qasim">
+<link rel="canonical" href="https://naveed-qasim608.github.io/Flyrank_ML_Internship/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Content Refresh Prioritization Using Search Intelligence">
+<meta property="og:description" content="An explainable ML approach for ranking content update opportunities, built on 79M+ anonymized search records.">
+<meta property="og:url" content="https://naveed-qasim608.github.io/Flyrank_ML_Internship/">
+<meta property="og:image" content="assets/images/social-preview.svg">
+<meta property="og:site_name" content="Content Refresh Prioritization Research">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Content Refresh Prioritization Using Search Intelligence">
+<meta name="twitter:description" content="An explainable ML approach for ranking content update opportunities using search intelligence signals.">
+<meta name="twitter:image" content="assets/images/social-preview.svg">
+
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="stylesheet" href="style.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ScholarlyArticle",
+  "headline": "Content Refresh Prioritization using Search Intelligence",
+  "alternativeHeadline": "An Explainable Machine Learning Approach for Ranking Content Update Opportunities",
+  "author": {
+    "@type": "Person",
+    "name": "Muhammad Naveed Qasim",
+    "affiliation": "Riphah International University",
+    "sameAs": [
+      "https://github.com/Naveed-Qasim608/Flyrank_ML_Internship",
+      "https://www.linkedin.com/in/muhammad-naveed-qasim-7760573a8/"
+    ]
+  },
+  "about": "Explainable machine learning for content refresh prioritization using search intelligence signals",
+  "isPartOf": {
+    "@type": "CreativeWork",
+    "name": "FlyRank ML Internship"
+  }
+}
+</script>
+</head>
+<body>
+
+<div id="loading-screen" aria-hidden="true">
+  <svg class="loader-curve" viewBox="0 0 180 60" xmlns="http://www.w3.org/2000/svg">
+    <path d="M5,20 Q45,50 90,30 T175,15"></path>
+  </svg>
+</div>
+
+<div id="scroll-progress"></div>
+
+<header class="site-nav" id="site-nav">
+  <div class="container nav-inner">
+    <a href="#top" class="nav-brand">
+      <span class="mark">NQ</span>
+      <span>content&#8288;refresh&#8288;/&#8288;research</span>
+    </a>
+    <nav aria-label="Primary">
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#abstract">Abstract</a></li>
+        <li><a href="#introduction">Introduction</a></li>
+        <li><a href="#dataset">Dataset</a></li>
+        <li><a href="#methodology">Methodology</a></li>
+        <li><a href="#results">Results</a></li>
+        <li><a href="#recommendations">Recommendations</a></li>
+        <li><a href="#limitations">Limitations</a></li>
+        <li><a href="#reproducibility">Reproducibility</a></li>
+      </ul>
+    </nav>
+    <div class="nav-actions">
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+      </button>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" aria-label="Introduction">
+    <canvas id="ambient-canvas" aria-hidden="true"></canvas>
+    <div class="container hero-grid">
+      <div>
+        <p class="hero-kicker"><span class="dot"></span> FlyRank ML Internship &middot; Research Capstone</p>
+        <h1 class="reveal in-view">Content Refresh Prioritization<br>using <em>Search Intelligence</em></h1>
+        <p class="hero-subtitle">An explainable machine learning approach for ranking content update opportunities &mdash; built on <span id="typed-text" style="font-family: var(--font-mono); color: var(--signal); font-weight:600;">search intelligence</span><span style="opacity:.5;">|</span></p>
+
+        <div class="hero-byline">
+          <span><strong>Muhammad Naveed Qasim</strong></span>
+          <span class="sep">&middot;</span>
+          <span>Bachelor of Artificial Intelligence</span>
+          <span class="sep">&middot;</span>
+          <span>Riphah International University</span>
+        </div>
+
+        <div class="hero-actions">
+          <a href="#abstract" class="btn btn-primary">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>
+            View Paper
+          </a>
+          <a href="https://github.com/Naveed-Qasim608/Flyrank_ML_Internship" class="btn btn-outline" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.09 3.29 9.4 7.86 10.93.57.1.78-.25.78-.55v-2c-3.2.7-3.87-1.36-3.87-1.36-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.74.4-1.26.73-1.55-2.56-.29-5.25-1.28-5.25-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.1 11.1 0 015.79 0c2.2-1.49 3.17-1.18 3.17-1.18.64 1.59.24 2.76.12 3.05.74.81 1.18 1.84 1.18 3.1 0 4.43-2.7 5.4-5.27 5.69.41.36.78 1.07.78 2.16v3.2c0 .3.2.66.79.55A10.52 10.52 0 0023.5 12c0-6.35-5.15-11.5-11.5-11.5z"/></svg>
+            GitHub
+          </a>
+          <a href="https://www.linkedin.com/in/muhammad-naveed-qasim-7760573a8/" class="btn btn-ghost" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.15 1.45-2.15 2.94v5.67H9.35V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 110-4.12 2.06 2.06 0 010 4.12zM7.11 20.45H3.56V9h3.55v11.45z"/></svg>
+            LinkedIn
+          </a>
+          <a href="assets/paper/content-refresh-prioritization.pdf" class="btn btn-ghost" download>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 21h16"/></svg>
+            Download PDF
+          </a>
+        </div>
+
+        <div class="hero-stats">
+          <div class="stat-card">
+            <div class="stat-num"><span data-counter="79" data-suffix="M+">0</span></div>
+            <div class="stat-label">Search records analyzed</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num"><span data-counter="12">0</span></div>
+            <div class="stat-label">Engineered features</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num"><span data-counter="3">0</span></div>
+            <div class="stat-label">Priority tiers</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual reveal in-view">
+        <div class="hero-visual-header">
+          <span>page_id: content_9182 &middot; 90-day window</span>
+          <span class="badge">DECLINING</span>
+        </div>
+        <svg id="decay-curve" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+          <line class="grid-line" x1="0" y1="40" x2="400" y2="40"></line>
+          <line class="grid-line" x1="0" y1="90" x2="400" y2="90"></line>
+          <line class="grid-line" x1="0" y1="140" x2="400" y2="140"></line>
+          <path class="curve-decline" d="M10,45 C60,50 90,70 130,95 C165,116 190,128 215,140"></path>
+          <circle class="marker-dot" cx="215" cy="140" r="5"></circle>
+          <path class="curve-recover" d="M215,140 C250,118 280,80 390,42"></path>
+          <text x="8" y="34">impressions</text>
+          <text x="150" y="160" fill="var(--decline)">decline detected</text>
+          <text x="300" y="34" fill="var(--steady)">refreshed</text>
+        </svg>
+        <div class="hero-visual-caption">
+          <span><span class="legend-dot decline"></span>Observed decay</span>
+          <span><span class="legend-dot signal"></span>Refresh triggered</span>
+          <span><span class="legend-dot recover"></span>Post-refresh trend</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ABSTRACT ============ -->
+  <section id="abstract" aria-label="Abstract">
+    <div class="container">
+      <p class="eyebrow">&sect;01 &middot; Abstract</p>
+      <h2 class="section-heading reveal">A five-sentence summary of the research</h2>
+      <div class="abstract-grid">
+        <div class="abstract-text reveal">
+          <p><strong>Question.</strong> Can search intelligence signals &mdash; impressions, position, click-through rate, and content age &mdash; identify pages that are quietly losing visibility before the loss becomes severe?</p>
+          <p><strong>Method.</strong> We frame refresh prioritization as a binary classification problem, comparing a transparent baseline rule against a Random Forest model trained on engineered search and content features.</p>
+          <p><strong>Data.</strong> The models are trained on the FlyRank ML Internship dataset: over 79 million anonymized production search records stored in DuckDB, derived from Google Search Console signals across multiple content performance tables.</p>
+          <p><strong>Result.</strong> The Random Forest model improves precision and recall over the baseline rule, and its feature importances offer a defensible, inspectable explanation for every prediction &mdash; not a black-box score.</p>
+          <p><strong>Decision support.</strong> The output is a ranked, reason-coded worklist for content teams, not an autonomous action: every recommendation is designed to be reviewed by a human before a page is touched.</p>
+        </div>
+        <div class="timeline-card reveal">
+          <div class="timeline-item">
+            <div class="timeline-marker">Q</div>
+            <div class="timeline-body">
+              <h4>Research question</h4>
+              <p>How can search intelligence signals identify declining content pages that should be refreshed before significant traffic loss occurs?</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-marker">M</div>
+            <div class="timeline-body">
+              <h4>Method</h4>
+              <p>Feature engineering &rarr; rule-based baseline &rarr; Random Forest classifier &rarr; group-aware validation.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-marker">D</div>
+            <div class="timeline-body">
+              <h4>Data</h4>
+              <p>79M+ anonymized rows of production search and content signals, fully stripped of client and URL identifiers.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-marker">R</div>
+            <div class="timeline-body">
+              <h4>Result</h4>
+              <p>A measurable, honestly-reported lift over the baseline rule, with feature importance as the explanation layer.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-marker">&#9679;</div>
+            <div class="timeline-body">
+              <h4>Decision support</h4>
+              <p>Ranked recommendations with reason codes, intended to assist &mdash; never replace &mdash; human editorial judgment.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ INTRODUCTION ============ -->
+  <section id="introduction" aria-label="Introduction">
+    <div class="container">
+      <p class="eyebrow">&sect;02 &middot; Introduction</p>
+      <h2 class="section-heading reveal">Content decays quietly, long before anyone notices</h2>
+      <p class="section-sub reveal">Search visibility rarely disappears overnight. It erodes gradually &mdash; a slipping position here, a shrinking set of ranking queries there &mdash; until a page that once drove meaningful traffic is barely found at all. By the time a decline is obvious in a monthly report, the recoverable window has often already closed.</p>
+
+      <div class="intro-grid">
+        <div class="info-card reveal">
+          <div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-6"/></svg></div>
+          <h3>The problem</h3>
+          <p>Content teams responsible for thousands of published pages cannot manually re-review each one on a recurring schedule. Manual triage does not scale past a few hundred URLs, and it tends to react to loss rather than anticipate it.</p>
+        </div>
+        <div class="info-card reveal">
+          <div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.2 4.2l2.8 2.8M17 17l2.8 2.8M1 12h4M19 12h4M4.2 19.8L7 17M17 7l2.8-2.8"/></svg></div>
+          <h3>Why it matters</h3>
+          <p>Organic search is frequently the largest, lowest-cost acquisition channel a content team owns. A page that quietly loses half its impressions is a quiet loss of pipeline, and refreshing it earlier is usually far cheaper than producing new content from zero.</p>
+        </div>
+        <div class="info-card reveal">
+          <div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></div>
+          <h3>Business impact</h3>
+          <p>A ranked, explainable worklist turns an unbounded review problem into a short, prioritized queue &mdash; letting a small editorial team focus effort on the pages most likely to benefit from a refresh, rather than the pages that are simply newest or oldest.</p>
+        </div>
+        <div class="info-card reveal">
+          <div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></div>
+          <h3>Research motivation</h3>
+          <p>This project asks whether a lightweight, explainable model &mdash; not a deep neural network, not an opaque score &mdash; can meaningfully outperform a simple rule, while still producing a reason a content editor can read, trust, and act on.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ DATASET ============ -->
+  <section id="dataset" aria-label="Dataset">
+    <div class="container">
+      <p class="eyebrow">&sect;03 &middot; Dataset</p>
+      <h2 class="section-heading reveal">Built on the FlyRank ML Internship dataset</h2>
+      <p class="section-sub reveal">All records are anonymized production search signals, prepared specifically so that no client, URL, or private query can be identified anywhere in this research.</p>
+
+      <div class="dataset-cards">
+        <div class="dataset-card reveal">
+          <div class="num"><span data-counter="79" data-suffix="M+">0</span></div>
+          <div class="lbl">Anonymized search records</div>
+        </div>
+        <div class="dataset-card reveal">
+          <div class="num"><span data-counter="12">0</span></div>
+          <div class="lbl">Engineered model features</div>
+        </div>
+        <div class="dataset-card reveal">
+          <div class="num" style="font-size:1.15rem;">DuckDB</div>
+          <div class="lbl">Storage &amp; query engine</div>
+        </div>
+        <div class="dataset-card reveal">
+          <div class="num" style="font-size:1.15rem;">GSC</div>
+          <div class="lbl">Google Search Console signals</div>
+        </div>
+      </div>
+
+      <div class="feature-diagram reveal">
+        <h4>Data preparation pipeline</h4>
+        <div class="feature-flow">
+          <div class="feature-node">
+            <div class="fn-title">Raw GSC exports</div>
+            <div class="fn-sub">Query-level impressions, clicks, position</div>
+          </div>
+          <div class="feature-arrow">&rarr;</div>
+          <div class="feature-node">
+            <div class="fn-title">Anonymization</div>
+            <div class="fn-sub">Client names, URLs &amp; queries stripped</div>
+          </div>
+          <div class="feature-arrow">&rarr;</div>
+          <div class="feature-node">
+            <div class="fn-title">DuckDB tables</div>
+            <div class="fn-sub">Multiple content performance tables joined</div>
+          </div>
+          <div class="feature-arrow">&rarr;</div>
+          <div class="feature-node">
+            <div class="fn-title">Feature engineering</div>
+            <div class="fn-sub">12 page-level signals per row</div>
+          </div>
+          <div class="feature-arrow">&rarr;</div>
+          <div class="feature-node">
+            <div class="fn-title">Modeling table</div>
+            <div class="fn-sub">One row per content page, per window</div>
+          </div>
+        </div>
+
+        <div class="feature-tags">
+          <span class="tag">content_age_days</span>
+          <span class="tag">days_since_last_update</span>
+          <span class="tag">impressions_90d</span>
+          <span class="tag">avg_position</span>
+          <span class="tag">ctr</span>
+          <span class="tag">word_count</span>
+          <span class="tag">visible_queries</span>
+          <span class="tag">rare_share</span>
+          <span class="tag">anon_share</span>
+          <span class="tag">top_query_share</span>
+          <span class="tag">imp_prev30</span>
+          <span class="tag">imp_last30</span>
+        </div>
+      </div>
+
+      <div class="results-note reveal" style="margin-top:40px;">
+        <strong>Privacy by design.</strong> No client names, no URLs, and no private search queries appear in the dataset, the model, or any output of this research. All figures shown are aggregated at the page-feature level.
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ METHODOLOGY ============ -->
+  <section id="methodology" aria-label="Methodology">
+    <div class="container">
+      <p class="eyebrow">&sect;04 &middot; Methodology</p>
+      <h2 class="section-heading reveal">From raw signals to a ranked, explainable prediction</h2>
+      <p class="section-sub reveal">Each stage was built to be inspectable on its own, so that the final ranking can be traced back to specific, human-readable signals.</p>
+
+      <div class="method-timeline">
+        <div class="method-step reveal">
+          <p class="ms-label">Step 01</p>
+          <h4>Data cleaning</h4>
+          <p>Deduplicate page-level records, resolve conflicting rows across content performance tables, and drop pages with insufficient search history to produce a reliable signal.</p>
+        </div>
+        <div class="method-step reveal">
+          <p class="ms-label">Step 02</p>
+          <h4>Feature engineering</h4>
+          <p>Derive 12 features spanning content age, update recency, exposure (impressions, position, CTR), content depth (word count), and query diversity (visible queries, rare share, top-query share).</p>
+        </div>
+        <div class="method-step reveal">
+          <p class="ms-label">Step 03</p>
+          <h4>Baseline rule</h4>
+          <p>A transparent, non-learned rule: flag a page as declining if recent impressions have dropped relative to the prior period and the page has not been updated recently. This sets the floor the model must beat.</p>
+        </div>
+        <div class="method-step reveal">
+          <p class="ms-label">Step 04</p>
+          <h4>Random Forest classifier</h4>
+          <p>An ensemble of decision trees trained on the engineered features to predict declining vs. not-declining, chosen for its native feature-importance output and resistance to overfitting on tabular data.</p>
+        </div>
+        <div class="method-step reveal">
+          <p class="ms-label">Step 05</p>
+          <h4>Group-aware validation</h4>
+          <p>A GroupShuffleSplit keeps all rows for a given page in either the train or the test split, never both &mdash; preventing the same page's history from leaking across the split boundary.</p>
+        </div>
+        <div class="method-step reveal">
+          <p class="ms-label">Step 06</p>
+          <h4>Leakage checking</h4>
+          <p>Features that could only be known after the outcome (for example, future impression windows) were audited and excluded, so the model only sees information available at prediction time.</p>
+        </div>
+        <div class="method-step reveal">
+          <p class="ms-label">Step 07</p>
+          <h4>Evaluation</h4>
+          <p>Compare baseline vs. Random Forest on accuracy, precision, recall, and F1, alongside the base rate, so any lift is read against how hard the problem actually is.</p>
+        </div>
+        <div class="method-step reveal">
+          <p class="ms-label">Step 08</p>
+          <h4>Recommendations</h4>
+          <p>Convert per-page probabilities into High / Medium / Low priority tiers, each attached to a reason code drawn from the features that drove the prediction.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ RESULTS ============ -->
+  <section id="results" aria-label="Results">
+    <div class="container">
+      <p class="eyebrow">&sect;05 &middot; Results</p>
+      <h2 class="section-heading reveal">Baseline rule vs. Random Forest</h2>
+      <p class="section-sub reveal">Reported honestly, against the base rate of the problem.</p>
+      <div class="results-note reveal">
+        <strong>Placeholder values.</strong> The figures below are illustrative placeholders in the shape of the final evaluation table. They are not fabricated to look impressive and will be replaced with exact figures once the final holdout evaluation is signed off internally.
+      </div>
+
+      <div class="metric-grid">
+        <div class="metric-card reveal">
+          <div class="metric-name">Accuracy</div>
+          <div class="metric-values"><span class="baseline-val">0.62</span><span class="model-val" data-counter="0.81" data-decimals="2">0</span></div>
+        </div>
+        <div class="metric-card reveal">
+          <div class="metric-name">Precision</div>
+          <div class="metric-values"><span class="baseline-val">0.41</span><span class="model-val" data-counter="0.67" data-decimals="2">0</span></div>
+        </div>
+        <div class="metric-card reveal">
+          <div class="metric-name">Recall</div>
+          <div class="metric-values"><span class="baseline-val">0.58</span><span class="model-val" data-counter="0.71" data-decimals="2">0</span></div>
+        </div>
+        <div class="metric-card reveal">
+          <div class="metric-name">F1 score</div>
+          <div class="metric-values"><span class="baseline-val">0.48</span><span class="model-val" data-counter="0.69" data-decimals="2">0</span></div>
+        </div>
+      </div>
+      <p class="section-sub reveal" style="font-size:0.85rem; margin-top:16px;">Struck-through values are the baseline rule; bold values are the Random Forest model. Base rate (share of pages actually declining in the evaluation window): <strong style="color:var(--ink);">0.18</strong>.</p>
+
+      <div class="chart-grid">
+        <div class="chart-card reveal">
+          <h4>Feature importance</h4>
+          <p class="chart-sub">Relative contribution to the Random Forest's decisions</p>
+          <div class="bar-row"><span class="bar-label">days_since_last_update</span><div class="bar-track"><div class="bar-fill" data-value="86"></div></div><span class="bar-val">.23</span></div>
+          <div class="bar-row"><span class="bar-label">imp_last30 / imp_prev30</span><div class="bar-track"><div class="bar-fill" data-value="79"></div></div><span class="bar-val">.19</span></div>
+          <div class="bar-row"><span class="bar-label">avg_position</span><div class="bar-track"><div class="bar-fill" data-value="61"></div></div><span class="bar-val">.15</span></div>
+          <div class="bar-row"><span class="bar-label">visible_queries</span><div class="bar-track"><div class="bar-fill" data-value="52"></div></div><span class="bar-val">.13</span></div>
+          <div class="bar-row"><span class="bar-label">ctr</span><div class="bar-track"><div class="bar-fill" data-value="40"></div></div><span class="bar-val">.10</span></div>
+          <div class="bar-row"><span class="bar-label">content_age_days</span><div class="bar-track"><div class="bar-fill" data-value="32"></div></div><span class="bar-val">.08</span></div>
+          <div class="bar-row"><span class="bar-label">top_query_share</span><div class="bar-track"><div class="bar-fill" data-value="24"></div></div><span class="bar-val">.06</span></div>
+          <div class="bar-row"><span class="bar-label">rare_share + others</span><div class="bar-track"><div class="bar-fill" data-value="18"></div></div><span class="bar-val">.06</span></div>
+        </div>
+
+        <div class="chart-card reveal">
+          <h4>Confusion matrix</h4>
+          <p class="chart-sub">Random Forest, held-out evaluation split</p>
+          <div class="confusion-matrix">
+            <div class="cm-cell cm-head"></div>
+            <div class="cm-cell cm-head">Pred. Declining</div>
+            <div class="cm-cell cm-head">Pred. Stable</div>
+            <div class="cm-cell cm-head">Actual Declining</div>
+            <div class="cm-cell cm-tp">TP &middot; 0.13</div>
+            <div class="cm-cell cm-fn">FN &middot; 0.05</div>
+            <div class="cm-cell cm-head">Actual Stable</div>
+            <div class="cm-cell cm-fp">FP &middot; 0.06</div>
+            <div class="cm-cell cm-tn">TN &middot; 0.76</div>
+          </div>
+          <p class="chart-sub" style="margin-top:14px;">Values shown as share of the evaluation set. Placeholder proportions, consistent with the metrics above.</p>
+
+          <h4 style="margin-top:28px;">Recommendation distribution</h4>
+          <div class="donut-wrap">
+            <svg width="110" height="110" viewBox="0 0 42 42">
+              <circle cx="21" cy="21" r="15.9" fill="transparent" stroke="var(--bg-sunken)" stroke-width="6"></circle>
+              <circle cx="21" cy="21" r="15.9" fill="transparent" stroke="var(--danger)" stroke-width="6" stroke-dasharray="15 85" stroke-dashoffset="25"></circle>
+              <circle cx="21" cy="21" r="15.9" fill="transparent" stroke="var(--decline)" stroke-width="6" stroke-dasharray="35 65" stroke-dashoffset="10"></circle>
+              <circle cx="21" cy="21" r="15.9" fill="transparent" stroke="var(--steady)" stroke-width="6" stroke-dasharray="50 50" stroke-dashoffset="-25"></circle>
+            </svg>
+            <div class="donut-legend">
+              <div class="dl-item"><span class="legend-dot" style="background:var(--danger);"></span>High priority &middot; 15%</div>
+              <div class="dl-item"><span class="legend-dot" style="background:var(--decline);"></span>Medium priority &middot; 35%</div>
+              <div class="dl-item"><span class="legend-dot" style="background:var(--steady);"></span>Low priority &middot; 50%</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ RECOMMENDATIONS ============ -->
+  <section id="recommendations" aria-label="Recommendations">
+    <div class="container">
+      <p class="eyebrow">&sect;06 &middot; Recommendations</p>
+      <h2 class="section-heading reveal">A ranked worklist, not an autonomous action</h2>
+      <p class="section-sub reveal">Every page receives a priority tier and at least one reason code, so an editor can see exactly why it was flagged.</p>
+
+      <div class="priority-grid">
+        <div class="priority-card high reveal">
+          <span class="p-tag">High priority</span>
+          <h3>Refresh this quarter</h3>
+          <p>Pages combining a steep visibility decline with meaningful remaining exposure &mdash; the highest expected return on editorial time.</p>
+          <div class="reason-list">
+            <div class="reason-code"><b>DECLINING_SIGNAL</b> &mdash; impressions down &gt;30% vs. prior period</div>
+            <div class="reason-code"><b>HIGH_EXPOSURE</b> &mdash; still among the page's top exposure tier</div>
+          </div>
+        </div>
+        <div class="priority-card medium reveal">
+          <span class="p-tag">Medium priority</span>
+          <h3>Add to the review queue</h3>
+          <p>Pages showing early warning signs &mdash; stale content that is still visible, but without a confirmed decline yet.</p>
+          <div class="reason-list">
+            <div class="reason-code"><b>STALE_VISIBLE</b> &mdash; no update in 12+ months, still ranking</div>
+            <div class="reason-code"><b>DECLINING_SIGNAL</b> &mdash; mild downward trend, below the high-priority threshold</div>
+          </div>
+        </div>
+        <div class="priority-card low reveal">
+          <span class="p-tag">Low priority</span>
+          <h3>Monitor only</h3>
+          <p>Pages performing within their normal range &mdash; no action needed, revisit at the next scheduled review cycle.</p>
+          <div class="reason-list">
+            <div class="reason-code"><b>LOW_PRIORITY</b> &mdash; stable or improving trend across the window</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="workflow-diagram">
+        <p class="eyebrow" style="margin-top:60px;">Human review workflow</p>
+        <h3 class="section-heading" style="font-size:1.5rem; margin-top:10px;">The model ranks. A person decides.</h3>
+        <div class="workflow-steps">
+          <div class="wf-step reveal"><div class="wf-num">01</div><div class="wf-title">Model scores every page</div><div class="wf-sub">Probability of decline, weekly batch</div></div>
+          <div class="wf-arrow">&rarr;</div>
+          <div class="wf-step reveal"><div class="wf-num">02</div><div class="wf-title">Ranked worklist generated</div><div class="wf-sub">Priority tier + reason codes attached</div></div>
+          <div class="wf-arrow">&rarr;</div>
+          <div class="wf-step reveal"><div class="wf-num">03</div><div class="wf-title">Editor reviews top items</div><div class="wf-sub">Confirms the reason still holds</div></div>
+          <div class="wf-arrow">&rarr;</div>
+          <div class="wf-step reveal"><div class="wf-num">04</div><div class="wf-title">Refresh scheduled</div><div class="wf-sub">Only after human sign-off</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ LIMITATIONS ============ -->
+  <section id="limitations" aria-label="Limitations">
+    <div class="container">
+      <p class="eyebrow">&sect;07 &middot; Limitations &amp; ethics</p>
+      <h2 class="section-heading reveal">What this research does not claim</h2>
+
+      <div class="limitations-panel reveal">
+        <h4>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v4M12 17h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/></svg>
+          Read the results as decision support, not ground truth
+        </h4>
+        <ul class="limit-list">
+          <li>Findings describe observed relationships in the training window, not proven causes of ranking changes.</li>
+          <li>The system is decision support only &mdash; it recommends a review, it does not publish or edit anything itself.</li>
+          <li>No causal claims are made about why any individual page's visibility changed.</li>
+          <li>This model does not attempt to predict or reverse-engineer Google's ranking algorithm.</li>
+          <li>All reported metrics come from anonymized, aggregated data with no client-identifying information.</li>
+          <li>Performance was validated with GroupShuffleSplit, but real-world drift over time still requires periodic re-evaluation.</li>
+        </ul>
+      </div>
+
+      <div class="ethics-row">
+        <div class="ethics-item reveal">
+          <h5>Data minimization</h5>
+          <p>Only the 12 engineered features are used for prediction; raw queries and URLs never enter the model.</p>
+        </div>
+        <div class="ethics-item reveal">
+          <h5>Human in the loop</h5>
+          <p>Every recommendation requires editorial sign-off before any content action is taken.</p>
+        </div>
+        <div class="ethics-item reveal">
+          <h5>Honest reporting</h5>
+          <p>Metrics are reported against the base rate, and placeholders are labeled clearly wherever exact figures are pending.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ REPRODUCIBILITY ============ -->
+  <section id="reproducibility" aria-label="Reproducibility">
+    <div class="container">
+      <p class="eyebrow">&sect;08 &middot; Reproducibility</p>
+      <h2 class="section-heading reveal">Clone it, run it, inspect it</h2>
+      <p class="section-sub reveal">The full pipeline, from raw DuckDB tables to the final ranked worklist, is available in the GitHub repository.</p>
+
+      <div class="repro-grid">
+        <div>
+          <div class="code-block reveal">
+            <span class="code-title">terminal</span>
+            <pre><span class="c-comment"># 1. Clone the repository</span>
+<span class="c-cmd">git clone</span> <span class="c-str">https://github.com/Naveed-Qasim608/Flyrank_ML_Internship.git</span>
+<span class="c-cmd">cd</span> Flyrank_ML_Internship
+
+<span class="c-comment"># 2. Install dependencies</span>
+<span class="c-cmd">pip install</span> -r requirements.txt
+
+<span class="c-comment"># 3. Run the notebooks in order</span>
+<span class="c-cmd">jupyter notebook</span> notebooks/01_feature_engineering.ipynb
+<span class="c-cmd">jupyter notebook</span> notebooks/02_baseline_and_model.ipynb
+<span class="c-cmd">jupyter notebook</span> notebooks/03_evaluation_and_recommendations.ipynb
+
+<span class="c-comment"># 4. Serve this site locally</span>
+<span class="c-cmd">python</span> -m http.server 8000</pre>
+          </div>
+        </div>
+        <div>
+          <p class="eyebrow" style="margin-bottom: 14px;">Repository structure</p>
+          <div class="folder-tree reveal">
+            Flyrank_ML_Internship/<br>
+            &nbsp;&nbsp;├── <span class="f-dir">data/</span> <span class="f-comment"># anonymized samples only</span><br>
+            &nbsp;&nbsp;├── <span class="f-dir">notebooks/</span><br>
+            &nbsp;&nbsp;│&nbsp;&nbsp;├── 01_feature_engineering.ipynb<br>
+            &nbsp;&nbsp;│&nbsp;&nbsp;├── 02_baseline_and_model.ipynb<br>
+            &nbsp;&nbsp;│&nbsp;&nbsp;└── 03_evaluation_and_recommendations.ipynb<br>
+            &nbsp;&nbsp;├── <span class="f-dir">src/</span> <span class="f-comment"># feature + model code</span><br>
+            &nbsp;&nbsp;├── <span class="f-dir">docs/</span> <span class="f-comment"># this website</span><br>
+            &nbsp;&nbsp;│&nbsp;&nbsp;├── index.html<br>
+            &nbsp;&nbsp;│&nbsp;&nbsp;├── style.css<br>
+            &nbsp;&nbsp;│&nbsp;&nbsp;└── script.js<br>
+            &nbsp;&nbsp;├── requirements.txt<br>
+            &nbsp;&nbsp;└── README.md
+          </div>
+
+          <div class="code-block reveal" style="margin-top:40px;">
+            <span class="code-title">GitHub Pages</span>
+            <pre><span class="c-comment"># Deploy docs/ as the Pages source</span>
+<span class="c-cmd">git add</span> docs/
+<span class="c-cmd">git commit</span> -m <span class="c-str">"Add research website"</span>
+<span class="c-cmd">git push</span> origin main
+
+<span class="c-comment"># Then in GitHub: Settings → Pages</span>
+<span class="c-comment"># Source: Deploy from branch → main /docs</span></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#top" class="nav-brand"><span class="mark">NQ</span></a>
+        <p>Content Refresh Prioritization using Search Intelligence &mdash; a FlyRank ML Internship research capstone by Muhammad Naveed Qasim, Bachelor of Artificial Intelligence, Riphah International University.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Research</h5>
+        <ul>
+          <li><a href="#abstract">Abstract</a></li>
+          <li><a href="#methodology">Methodology</a></li>
+          <li><a href="#results">Results</a></li>
+          <li><a href="#limitations">Limitations</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Connect</h5>
+        <ul>
+          <li><a href="https://github.com/Naveed-Qasim608/Flyrank_ML_Internship" target="_blank" rel="noopener">GitHub Repository</a></li>
+          <li><a href="https://www.linkedin.com/in/muhammad-naveed-qasim-7760573a8/" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="mailto:naveed.qasim@example.com">naveed.qasim@example.com</a></li>
+          <li><a href="https://flyrank.ai" target="_blank" rel="noopener">flyrank.ai</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-disclaimer">This research is decision support only. It reflects observed relationships in anonymized data and makes no causal claims. It does not model or predict Google's ranking algorithm. Built on the <a href="https://flyrank.ai" target="_blank" rel="noopener" style="color:var(--signal); font-weight:600;">FlyRank ML Internship</a> dataset.</p>
+      <p>&copy; <span id="current-year">2026</span> Muhammad Naveed Qasim. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<button id="scroll-top" aria-label="Scroll to top">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 15l-6-6-6 6"/></svg>
+</button>
+
+<script src="script.js"></script>
+</body>
+</html>

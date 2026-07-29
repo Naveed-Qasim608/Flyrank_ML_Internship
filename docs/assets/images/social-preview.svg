@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0A0C13"/>
+      <stop offset="100%" stop-color="#141A2B"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <text x="80" y="120" font-family="JetBrains Mono, monospace" font-size="20" letter-spacing="2" fill="#E6A64B" font-weight="700">FLYRANK ML INTERNSHIP · RESEARCH CAPSTONE</text>
+  <text x="80" y="230" font-family="Georgia, serif" font-size="56" fill="#E9EBF3" font-weight="600">Content Refresh</text>
+  <text x="80" y="300" font-family="Georgia, serif" font-size="56" fill="#E9EBF3" font-weight="600">Prioritization using</text>
+  <text x="80" y="370" font-family="Georgia, serif" font-size="56" fill="#6D96EE" font-weight="600" font-style="italic">Search Intelligence</text>
+  <text x="80" y="430" font-family="Inter, sans-serif" font-size="22" fill="#A7ACC2">An explainable ML approach for ranking content update opportunities</text>
+  <line x1="80" y1="470" x2="30" y2="470" stroke="#232839" stroke-width="1"/>
+  <path d="M80,530 C160,560 220,500 320,470 C420,440 480,450 560,420" stroke="#E6A64B" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <path d="M560,420 C620,400 680,360 760,340" stroke="#49CB9C" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <circle cx="560" cy="420" r="8" fill="#6D96EE"/>
+  <text x="80" y="590" font-family="JetBrains Mono, monospace" font-size="18" fill="#6C7189">Muhammad Naveed Qasim  ·  Riphah International University</text>
+</svg>
